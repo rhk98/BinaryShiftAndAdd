@@ -10,7 +10,6 @@
 *.zip
 _NCrunch*
 _ReSharper*
-AssemblyInfo.cs
 bin
 deploy/production.yml
 obj
@@ -18,9 +17,6 @@ out
 packages
 previous_ndepend
 tmp
-app.config
-nlog.config
-web.config
 validFromGeneration.config
 .idea
 
