@@ -14,13 +14,16 @@ namespace ShiftAndAdd
     {
         public int MultiplyTheBinaryWay(int multiplicand, int multiplier)
         {
-            var multiplierInBits = new BitArray(new int[] {multiplier});
-
-            IList<int> powersOf2 =
-                (from bool multiplierInBit in multiplierInBits
-                    select MultiplyBit(multiplicand, Convert.ToInt32(multiplierInBit))).ToList();
-
+            var powersOf2 = GetPowersOf2(multiplicand, multiplier);
             return ShiftAndAdd(powersOf2);
+        }
+
+        private IList<int> GetPowersOf2(int multiplicand, int multiplier)
+        {
+            var multiplierInBits = new BitArray(new int[] { multiplier });
+            return
+                (from bool multiplierInBit in multiplierInBits
+                 select MultiplyBit(multiplicand, Convert.ToInt32(multiplierInBit))).ToList();
         }
 
         private int MultiplyBit(int multiplicand, int bit)
@@ -30,10 +33,10 @@ namespace ShiftAndAdd
 
         private int ShiftAndAdd(IList<int> powersOf2)
         {
-            var multiplyResult = powersOf2[0];
-            for(var xx = 1; xx < powersOf2.Count; xx++)
+            var multiplyResult = 0;
+            for (var index = 0; index < powersOf2.Count; index++)
             {
-                multiplyResult = multiplyResult + (powersOf2[xx] << xx);
+                multiplyResult = multiplyResult + (powersOf2[index] << index);
             }
             return multiplyResult;
         }
