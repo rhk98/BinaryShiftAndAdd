@@ -1,4 +1,4 @@
 Limitations! 
 1. Only accepts Integers.
-2. Only works is result of multiplication fits a 32  bit integer.
+2. Only works if result of multiplication fits a 32  bit integer.
 Next version will not have these limitations!!
